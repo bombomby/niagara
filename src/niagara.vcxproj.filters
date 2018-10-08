@@ -13,6 +13,9 @@
     <Filter Include="meshoptimizer">
       <UniqueIdentifier>{960b33bb-e128-4112-8520-2752ddeec8ce}</UniqueIdentifier>
     </Filter>
+    <Filter Include="brofiler">
+      <UniqueIdentifier>{eb894054-21b6-47f3-abe2-198b15c4cad7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\extern\glfw\src\win32_joystick.h">
@@ -38,6 +41,81 @@
     </ClInclude>
     <ClInclude Include="..\extern\meshoptimizer\demo\objparser.h">
       <Filter>meshoptimizer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Brofiler.h">
+      <Filter>brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\CallstackCollector.h">
+      <Filter>brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\CityHash.h">
+      <Filter>brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Common.h">
+      <Filter>brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Core.h">
+      <Filter>brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Event.h">
+      <Filter>brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\EventDescriptionBoard.h">
+      <Filter>brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Memory.h">
+      <Filter>brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\MemoryPool.h">
+      <Filter>brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Message.h">
+      <Filter>brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Platform.h">
+      <Filter>brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\ProfilerServer.h">
+      <Filter>brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Serialization.h">
+      <Filter>brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Socket.h">
+      <Filter>brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\StringHash.h">
+      <Filter>brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\SwitchContextCollector.h">
+      <Filter>brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\SysCallCollector.h">
+      <Filter>brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\ThreadID.h">
+      <Filter>brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Timer.h">
+      <Filter>brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Types.h">
+      <Filter>brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Platform\SchedulerTrace.h">
+      <Filter>brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Platform\SymbolEngine.h">
+      <Filter>brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Platform\Windows\ETW.h">
+      <Filter>brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Platform\Windows\EtwTracer.h">
+      <Filter>brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Platform\Windows\SymEngine.h">
+      <Filter>brofiler</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -126,6 +204,51 @@
       <Filter>meshoptimizer</Filter>
     </ClCompile>
     <ClCompile Include="niagara.cpp" />
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\CallstackCollector.cpp">
+      <Filter>brofiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\CityHash.cpp">
+      <Filter>brofiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\Core.cpp">
+      <Filter>brofiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\Event.cpp">
+      <Filter>brofiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\EventDescriptionBoard.cpp">
+      <Filter>brofiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\Memory.cpp">
+      <Filter>brofiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\Message.cpp">
+      <Filter>brofiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\ProfilerServer.cpp">
+      <Filter>brofiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\Serialization.cpp">
+      <Filter>brofiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\SwitchContextCollector.cpp">
+      <Filter>brofiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\SysCallCollector.cpp">
+      <Filter>brofiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\Platform\SchedulerTrace.cpp">
+      <Filter>brofiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\Platform\SymbolEngine.cpp">
+      <Filter>brofiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\Platform\Windows\EtwTracer.cpp">
+      <Filter>brofiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\Platform\Windows\SymEngine.cpp">
+      <Filter>brofiler</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="shaders\triangle.vert.glsl">

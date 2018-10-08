@@ -91,7 +91,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>../extern/meshoptimizer/src;../extern/meshoptimizer/demo;../extern/volk;../extern/glfw/include;$(VULKAN_SDK)\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../extern/meshoptimizer/src;../extern/meshoptimizer/demo;../extern/volk;../extern/glfw/include;../extern/brofiler/BrofilerCore;$(VULKAN_SDK)\Include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -118,7 +118,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>../extern/meshoptimizer/src;../extern/meshoptimizer/demo;../extern/volk;../extern/glfw/include;$(VULKAN_SDK)\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../extern/meshoptimizer/src;../extern/meshoptimizer/demo;../extern/volk;../extern/glfw/include;../extern/brofiler/BrofilerCore;$(VULKAN_SDK)\Include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,7 +147,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>../extern/meshoptimizer/src;../extern/meshoptimizer/demo;../extern/volk;../extern/glfw/include;$(VULKAN_SDK)\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../extern/meshoptimizer/src;../extern/meshoptimizer/demo;../extern/volk;../extern/glfw/include;../extern/brofiler/BrofilerCore;$(VULKAN_SDK)\Include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -178,7 +178,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>../extern/meshoptimizer/src;../extern/meshoptimizer/demo;../extern/volk;../extern/glfw/include;$(VULKAN_SDK)\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../extern/meshoptimizer/src;../extern/meshoptimizer/demo;../extern/volk;../extern/glfw/include;../extern/brofiler/BrofilerCore;$(VULKAN_SDK)\Include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -199,6 +199,31 @@
     <CustomBuild />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Brofiler.h" />
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\CallstackCollector.h" />
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\CityHash.h" />
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Common.h" />
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Core.h" />
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Event.h" />
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\EventDescriptionBoard.h" />
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Memory.h" />
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\MemoryPool.h" />
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Message.h" />
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Platform.h" />
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Platform\SchedulerTrace.h" />
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Platform\SymbolEngine.h" />
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Platform\Windows\ETW.h" />
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Platform\Windows\EtwTracer.h" />
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Platform\Windows\SymEngine.h" />
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\ProfilerServer.h" />
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Serialization.h" />
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Socket.h" />
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\StringHash.h" />
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\SwitchContextCollector.h" />
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\SysCallCollector.h" />
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\ThreadID.h" />
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Timer.h" />
+    <ClInclude Include="..\extern\brofiler\BrofilerCore\Types.h" />
     <ClInclude Include="..\extern\glfw\src\egl_context.h" />
     <ClInclude Include="..\extern\glfw\src\osmesa_context.h" />
     <ClInclude Include="..\extern\glfw\src\wgl_context.h" />
@@ -209,6 +234,21 @@
     <ClInclude Include="..\extern\volk\volk.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\CallstackCollector.cpp" />
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\CityHash.cpp" />
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\Core.cpp" />
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\Event.cpp" />
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\EventDescriptionBoard.cpp" />
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\Memory.cpp" />
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\Message.cpp" />
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\Platform\SchedulerTrace.cpp" />
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\Platform\SymbolEngine.cpp" />
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\Platform\Windows\EtwTracer.cpp" />
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\Platform\Windows\SymEngine.cpp" />
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\ProfilerServer.cpp" />
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\Serialization.cpp" />
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\SwitchContextCollector.cpp" />
+    <ClCompile Include="..\extern\brofiler\BrofilerCore\SysCallCollector.cpp" />
     <ClCompile Include="..\extern\glfw\src\context.c" />
     <ClCompile Include="..\extern\glfw\src\egl_context.c" />
     <ClCompile Include="..\extern\glfw\src\init.c" />

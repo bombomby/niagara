@@ -4,6 +4,7 @@
 #include <vector>
 #include <algorithm>
 
+#include <Brofiler.h>
 #include <GLFW/glfw3.h>
 #include <GLFW/glfw3native.h>
 #include <volk.h>
@@ -12,6 +13,7 @@
 
 #define VK_CHECK(call) \
 	do { \
+		BROFILER_EVENT(#call); \
 		VkResult result_ = call; \
 		assert(result_ == VK_SUCCESS); \
 	} while (0)
@@ -722,6 +724,15 @@ void destroyBuffer(const Buffer& buffer, VkDevice device)
 	vkDestroyBuffer(device, buffer.buffer, 0);
 }
 
+#if USE_BROFILER
+Brofiler::EventStorage* createBrofilerStorage(VkPhysicalDevice physicalDevice)
+{
+	VkPhysicalDeviceProperties props;
+	vkGetPhysicalDeviceProperties(physicalDevice, &props);
+	return Brofiler::RegisterStorage(props.deviceName);
+}
+#endif
+
 int main(int argc, const char** argv)
 {
 	if (argc < 2)
@@ -829,11 +840,31 @@ int main(int argc, const char** argv)
 	assert(ib.size >= mesh.indices.size() * sizeof(uint32_t));
 	memcpy(ib.data, mesh.indices.data(), mesh.indices.size() * sizeof(uint32_t));
 
+#if USE_BROFILER
+	Brofiler::EventStorage* GPUStorage = createBrofilerStorage(physicalDevice);
+	const Brofiler::EventDescription* GPUTestEvent = Brofiler::EventDescription::CreateShared("GPU Test Event");
+	const Brofiler::EventDescription* GPUTestNestedEvent = Brofiler::EventDescription::CreateShared("GPU Test Nested Event");
+#endif
+
 	while (!glfwWindowShouldClose(window))
 	{
+		BROFILER_FRAME("MainThread");
+
 		glfwPollEvents();
 
+#if USE_BROFILER
+		/////////////////////////////// Brofiler GPU example /////////////////////////////////////////////////////////////////////////////////////////////
+		int64_t cpuTimestampStart = Brofiler::GetHighPrecisionTime();										
+		int64_t cpuTimestampFinish = cpuTimestampStart + Brofiler::GetHighPrecisionFrequency() * 5 / 1000;	// Adding 5ms just for test
+		BROFILER_STORAGE_EVENT(GPUStorage, GPUTestEvent, cpuTimestampStart, cpuTimestampFinish);			
+		BROFILER_STORAGE_EVENT(GPUStorage, GPUTestNestedEvent, cpuTimestampStart + (cpuTimestampFinish - cpuTimestampStart) / 2, cpuTimestampFinish);	
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#endif
+
 		resizeSwapchainIfNecessary(swapchain, physicalDevice, device, surface, familyIndex, swapchainFormat, renderPass);
+
+		BROFILER_TAG("Width", swapchain.width);
+		BROFILER_TAG("Height", swapchain.height);
 
 		uint32_t imageIndex = 0;
 		VK_CHECK(vkAcquireNextImageKHR(device, swapchain.swapchain, ~0ull, acquireSemaphore, VK_NULL_HANDLE, &imageIndex));

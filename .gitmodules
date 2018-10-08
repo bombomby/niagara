@@ -7,3 +7,7 @@
 [submodule "extern/meshoptimizer"]
 	path = extern/meshoptimizer
 	url = https://github.com/zeux/meshoptimizer.git
+[submodule "extern/brofiler"]
+	path = extern/brofiler
+	url = https://github.com/bombomby/brofiler.git
+	branch = v2.0
